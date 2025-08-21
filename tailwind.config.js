@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        nunito: ['Nunito', 'sans-serif'],
       },
       colors: {
         primary: '#C1272D',
