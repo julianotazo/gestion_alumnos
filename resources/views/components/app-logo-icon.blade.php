@@ -1,0 +1,1 @@
+<img src="{{ Vite::asset('resources/images/tiendApp_logo2.png') }}" alt="Logo" class="h-8 w-8" {{ $attributes }}>
