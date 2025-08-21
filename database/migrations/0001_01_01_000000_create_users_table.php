@@ -19,8 +19,12 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('is_admin')->default(false);
             $table->string('phone')->nullable();
-            $table->string('professional_url')->nullable();
+            $table->string('linkedin_url')->nullable();
+            $table->string('github_url')->nullable();
             $table->string('photo_path')->nullable();
+            $table->string('dni', 10)->unique();
+            $table->string('legajo', 5)->unique();
+            $table->enum('comision', ['2.1', '2.2']);
             $table->rememberToken();
             $table->timestamps();
         });

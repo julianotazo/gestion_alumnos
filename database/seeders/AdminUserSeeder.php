@@ -11,24 +11,51 @@ class AdminUserSeeder extends Seeder
 {
     public function run(): void
     {
-        // Podés mover estos valores a .env si querés
-        $name  = config('admin.name', 'Administrador');
-        $email = config('admin.email', 'admin@demo.com');
-        $pass  = config('admin.password', 'admin123');
-        
-        // Crea o actualiza si ya existe el email
-        User::updateOrCreate(
-            ['email' => $email],
+        // Usá la misma contraseña para ambos (editable por config)
+        $pass = config('admin.password', 'admin123');
+
+        $admins = [
             [
-                'name' => $name,
-                'password' => Hash::make($pass),
-                'is_admin' => true,
-                'phone' => '+54 9 351 000 0000',
-                'professional_url' => 'https://www.linkedin.com/',
-                'photo_path' => null,
-                'email_verified_at' => now(), // útil si usás verificación de email
-                'remember_token' => Str::random(10),
-            ]
-        );
+                'name'         => config('admin.name', 'Administrador1'),
+                'email'        => config('admin.email', 'admin1@demo.com'),
+                'dni'          => '12345678',
+                'legajo'       => '00001',
+                'comision'     => '2.1',
+                'phone'        => '3704000001',
+                'linkedin_url' => null,
+                'github_url'   => null,
+            ],
+            [
+                'name'         => 'Administrador2',
+                'email'        => 'admin2@demo.com',
+                'dni'          => '12345679',
+                'legajo'       => '00002',
+                'comision'     => '2.2',
+                'phone'        => '3704000002',
+                'linkedin_url' => null,
+                'github_url'   => null,
+            ],
+        ];
+
+        foreach ($admins as $a) {
+            User::updateOrCreate(
+                ['email' => $a['email']],
+                [
+                    'name'              => $a['name'],
+                    'password'          => Hash::make($pass),
+                    'is_admin'          => true,
+                    'phone'             => $a['phone'],
+                    'dni'               => $a['dni'],
+                    'legajo'            => $a['legajo'],
+                    'comision'          => $a['comision'],
+                    'linkedin_url'      => $a['linkedin_url'],
+                    'github_url'        => $a['github_url'],
+                    'photo_path'        => null,
+                    'email_verified_at' => now(),
+                    'remember_token'    => Str::random(10),
+                ]
+            );
+        }
     }
 }
+

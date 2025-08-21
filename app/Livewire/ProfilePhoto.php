@@ -15,17 +15,23 @@ class ProfilePhoto extends Component
     public function save()
     {
         $this->validate([
-            'photo' => 'image|max:2048', // Máx 2MB
+            'photo' => ['required','image','max:5120'],
         ]);
 
-        // Guardar la foto con nombre hasheado en /storage/app/public/photos
+        $user = auth()->user();
+
+        // (opcional) borrar anterior si existe
+        if ($user->photo_path && Storage::disk('public')->exists($user->photo_path)) {
+            Storage::disk('public')->delete($user->photo_path);
+        }
+
+        // guarda en storage/app/public/photos
         $path = $this->photo->store('photos', 'public');
 
-        // Actualizar el usuario logueado
-        auth()->user()->update([
-            'photo_path' => $path,
-        ]);
+        $user->update(['photo_path' => $path]);
 
+        // limpiar selección y feedback
+        $this->reset('photo');
         session()->flash('message', 'Foto de perfil actualizada correctamente.');
     }
 
