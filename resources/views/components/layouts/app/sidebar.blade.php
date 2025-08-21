@@ -43,15 +43,15 @@
             <flux:spacer />
 
             <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/AgosGavilan/Proyecto_final_progIII"
+                <flux:navlist.item icon="folder-git-2" href="https://github.com/julianotazo/gestion_alumnos"
                     target="_blank">
                     {{ __('Repositorio') }}
                 </flux:navlist.item>
 
                 <flux:navlist.item icon="book-open-text"
-                    href="https://drive.google.com/file/d/1DGliUiamw8AGe3PSefVurYYmg171sm3M/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1wG6cVRti2xVmNo24K-FqF-25SftfvyWi/view?usp=sharing"
                     target="_blank">
-                    {{ __('Documentación') }}
+                    {{ __('Planificación') }}
                 </flux:navlist.item>
             </flux:navlist>
 

@@ -39,7 +39,7 @@
         <flux:checkbox wire:model="remember" :label="__('Recordarme')" />
 
         <div class="flex items-center justify-end">
-            <flux:button variant="primary" type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white bg-[#C1272D] hover:bg-red-700 transition-colors text-whitefont-bold px-6 py-3 rounded-lg shadow-md transition">{{ __('Iniciar Sesión') }}</flux:button>
+            <flux:button variant="primary" type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg shadow-md transition">{{ __('Iniciar Sesión') }}</flux:button>
         </div>
     </form>
 
