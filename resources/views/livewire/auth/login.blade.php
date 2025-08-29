@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Iniciar Sesión')" :description="__('Gestioná tus productos y pedidos fácilmente')" />
+    <x-auth-header :title="__('Iniciar Sesión')" :description="__('UTN-FRRe | Tecnicatura Unirvesitaria en Programación')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
